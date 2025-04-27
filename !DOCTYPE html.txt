@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Mother's Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(255, 204, 229, 0.7), rgba(255, 255, 255, 0.7)),
+                  url('https://images.unsplash.com/photo-1585241936937-06c2483bfb74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: floatHearts 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        bottom: -50px;
+        transform: translateX(0) rotate(45deg);
+      }
+      50% {
+        transform: translateX(50px) rotate(45deg);
+      }
+      100% {
+        bottom: 100%;
+        transform: translateX(-50px) rotate(45deg);
+      }
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s ease forwards;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #d6336c;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 12px 25px;
+      background-color: #d6336c;
+      color: white;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #a61e4d;
+    }
+
+    /* Image Styling with Glow */
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      animation: fadeInUp 2s ease forwards, glow 2s ease-in-out infinite alternate;
+      box-shadow: 0 0 15px rgba(255, 102, 153, 0.6);
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px rgba(255, 102, 153, 0.6);
+      }
+      to {
+        box-shadow: 0 0 30px rgba(255, 102, 153, 1);
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio autoplay loop hidden>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left: 10%; animation-duration: 7s;"></div>
+  <div class="heart" style="left: 30%; animation-duration: 9s;"></div>
+  <div class="heart" style="left: 50%; animation-duration: 6s;"></div>
+  <div class="heart" style="left: 70%; animation-duration: 8s;"></div>
+  <div class="heart" style="left: 90%; animation-duration: 10s;"></div>
+
+  <!-- Card container -->
+  <div class="card">
+    <h1>Happy Mother's Day!</h1>
+
+    <!-- Your Uploaded Photo -->
+    <img src="Screenshot 2025-04-27 093116.png" alt="Mother">
+
+    <p>
+      Today we celebrate you, the one who gives us strength, hope, and unconditional love. 
+      Dear Mother, you are cherished beyond words. Thank you for being our everything!
+    </p>
+
+    <a href="#" class="btn">Send Love 💖</a>
+  </div>
+
+  <script>
+    // Triggering confetti on page load
+    window.onload = function() {
+      confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+
+</body>
+</html>
